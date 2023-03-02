@@ -13,7 +13,9 @@ if __name__ == "__main__" and config.get("debug","FORCE_RUN_MAIN") == False: rai
 
 def initiate(pwd):
     try: os.makedirs(f"{pwd}/logs")
-    except FileNotFoundError: pwd = config.get("save","global-save")
+    except FileNotFoundError: 
+        print("RSL could not find your save directory. Defaulting to global save on /var/rsl/logs/log.txt")
+        pwd = config.get("save","global-save")
     with open(f"{pwd}/logs/log.txt", 'a'):
         os.utime(f"{pwd}/logs", None)
 
