@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/gabe/Documents/Code/Python/DiscordBot/bot-env"
+set -gx VIRTUAL_ENV "/Users/970065276/Documents/Code/DiscordBot/bot./bot-env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
