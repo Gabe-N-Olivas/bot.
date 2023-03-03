@@ -20,4 +20,6 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = MyClient(intents=intents)
-client.run("MTA4MDg5MzQ4NzgzNjMxOTgxNQ.G0kGhu.56Uj_9S0KrkWdqmOiqshppmBEqD2581G6Q4zkg")
+with open('token.secret') as f:
+    token = f.readlines()
+client.run(token)
