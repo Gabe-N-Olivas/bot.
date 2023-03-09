@@ -1,9 +1,13 @@
 import configparser, os, inspect
 from sys import platform
+from datetime import datetime
+
+# Get current date and time
+now = datetime.now()
 
 module_path = inspect.getfile(inspect.currentframe())
 module_dir = os.path.realpath(os.path.dirname(module_path))
-config = configparser.ConfigParser()
+config = configparser.RawConfigParser()
 config.read(f'{module_dir}/rsl.cfg')
 
 if platform == "win32" and config.get("debug","FORCE_WIN_LOAD") == False:
@@ -20,7 +24,11 @@ def initiate(pwd):
         os.utime(f"{pwd}/logs", None)
 
 def mklog(pwd, input):
+    #if configparser.RawConfigParser("save", "use-timestamp"): time = now.strftime(configparser.RawConfigParser("save", "timestamp-strf"))
+    #else: 
+    time = None
+    
     with open(f"{pwd}/logs/log.txt", mode='w', encoding='utf-8') as f:
-        f.write(input)
+        f.write(f"{time}, {input}")
 
 print("RSL Loaded with no setup issues")
